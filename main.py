@@ -4,6 +4,7 @@ load_dotenv()  # load environment variables from .env
 from medium_trending import get_top_tech_articles
 from summarizer import summarize_article
 from extract_content import extract_article
+import sys
 
 def main():
     articles = get_top_tech_articles()
@@ -20,6 +21,7 @@ def main():
         print(f"Summary: \n")
         print(summary)
         print("\n" + "=" * 50 + "\n")
+        sys.stdout.flush()  # Ensure output is flushed immediately
     
 if __name__ == "__main__":
     main()
