@@ -19,10 +19,16 @@ class TestMediumTrending(unittest.TestCase):
                 self.link = link
                 self.summary = summary
 
-        mock_parse.return_value.entries = [
+        # Create mock entries
+        mock_entries = [
             MockEntry('Article 1', 'http://example.com/article1', 'Summary of article 1'),
             MockEntry('Article 2', 'http://example.com/article2', 'Summary of article 2')
         ]
+
+        # Create a mock feed object with the entries
+        mock_feed = Mock()
+        mock_feed.entries = mock_entries
+        mock_parse.return_value = mock_feed
 
         # Call the function
         articles = get_top_tech_articles()
