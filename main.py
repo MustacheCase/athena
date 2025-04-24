@@ -4,6 +4,7 @@ load_dotenv()  # load environment variables from .env
 from medium_trending import get_top_tech_articles
 from summarizer import summarize_article
 from extract_content import extract_article
+from telegram import send_to_telegram
 import sys
 
 def main():
@@ -22,6 +23,14 @@ def main():
         print(summary)
         print("\n" + "=" * 50 + "\n")
         sys.stdout.flush()  # Ensure output is flushed immediately
+        
+        # Send to Telegram
+        telegram_message = f"📰 *{title}*\n\n🔗 {url}\n\n📝 *Summary:*\n{summary}"
+        try:
+            send_to_telegram(telegram_message)
+            print(f"✅ Article {i} sent to Telegram successfully")
+        except Exception as e:
+            print(f"❌ Failed to send article {i} to Telegram: {str(e)}")
     
 if __name__ == "__main__":
     main()

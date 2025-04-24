@@ -6,11 +6,19 @@ class TestMediumTrending(unittest.TestCase):
 
     @patch('medium_trending.requests.get')
     @patch('medium_trending.feedparser.parse')
-    def test_get_top_tech_articles(self, mock_parse, mock_get):
+    @patch('medium_trending.detect')
+    @patch('medium_trending.re.search')
+    def test_get_top_tech_articles(self, mock_search, mock_detect, mock_parse, mock_get):
         # Mock the HTTP response
         mock_response = Mock()
         mock_response.content = b''
         mock_get.return_value = mock_response
+
+        # Mock the language detection to always return English
+        mock_detect.return_value = 'en'
+
+        # Mock the spam check to always return False (not spam)
+        mock_search.return_value = None
 
         # Mock the parsed feed
         class MockEntry:
@@ -19,10 +27,16 @@ class TestMediumTrending(unittest.TestCase):
                 self.link = link
                 self.summary = summary
 
-        mock_parse.return_value.entries = [
+        # Create mock entries
+        mock_entries = [
             MockEntry('Article 1', 'http://example.com/article1', 'Summary of article 1'),
             MockEntry('Article 2', 'http://example.com/article2', 'Summary of article 2')
         ]
+
+        # Create a mock feed object with the entries
+        mock_feed = Mock()
+        mock_feed.entries = mock_entries
+        mock_parse.return_value = mock_feed
 
         # Call the function
         articles = get_top_tech_articles()
