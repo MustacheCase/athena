@@ -6,11 +6,19 @@ class TestMediumTrending(unittest.TestCase):
 
     @patch('medium_trending.requests.get')
     @patch('medium_trending.feedparser.parse')
-    def test_get_top_tech_articles(self, mock_parse, mock_get):
+    @patch('medium_trending.detect')
+    @patch('medium_trending.re.search')
+    def test_get_top_tech_articles(self, mock_search, mock_detect, mock_parse, mock_get):
         # Mock the HTTP response
         mock_response = Mock()
         mock_response.content = b''
         mock_get.return_value = mock_response
+
+        # Mock the language detection to always return English
+        mock_detect.return_value = 'en'
+
+        # Mock the spam check to always return False (not spam)
+        mock_search.return_value = None
 
         # Mock the parsed feed
         class MockEntry:
