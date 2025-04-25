@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e87e8518-7a07-4f34-b5f2-0fc09181c9b6" alt="athena">
+</p>
+
 # Athena
 
 Athena is an intelligent tool designed to keep you updated with the latest trends and developments in programming through Medium articles. It helps you stay informed about new technologies, programming concepts, and industry best practices.
@@ -24,13 +28,6 @@ By joining our channel, you'll get:
 - Programming tips and best practices
 - Community discussions and insights
 
-## 🚀 Features
-
-- Automated content curation from Medium
-- Regular updates on programming trends
-- Curated selection of high-quality articles
-- Focus on practical programming knowledge
-- Community-driven content sharing
 
 ## 🤝 Contributing
 
