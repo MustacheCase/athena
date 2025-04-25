@@ -28,3 +28,6 @@ jobs:
         run: python -u main.py
         env:
             PYTHONUNBUFFERED: 1
+            TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+            TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+            GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
