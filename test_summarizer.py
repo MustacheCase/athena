@@ -1,6 +1,8 @@
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
+
 from summarizer import summarize_article
+
 
 class TestSummarizer(unittest.TestCase):
 
