@@ -34,9 +34,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      # zanadir-scan.yml is replaced by the pinned version in #10; drop the exclude once it lands.
       - name: Static analysis
-        run: semgrep scan --config auto --error --exclude .github/workflows/zanadir-scan.yml
+        run: semgrep scan --config auto --error
 
   licenses:
     runs-on: ubuntu-latest
