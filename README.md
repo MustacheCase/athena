@@ -4,6 +4,8 @@
 
 # Athena
 
+[![zanadir](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MustacheCase/athena/badges/zanadir-badge.json)](https://mustachecase.github.io/scan/?repo=MustacheCase/athena)
+
 Athena is an intelligent tool designed to keep you updated with the latest trends and developments in programming through Medium articles. It helps you stay informed about new technologies, programming concepts, and industry best practices.
 
 ## 🎯 Purpose
