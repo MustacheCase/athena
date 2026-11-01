@@ -1,0 +1,23 @@
+require-license: true
+require-known-license: false
+
+allow:
+  - MIT.*
+  - BSD.*
+  - 3-Clause BSD.*
+  - Apache.*
+  - MPL.*
+  - PSF.*
+  - ISC
+  - 0BSD
+  - CC0.*
+  - Unlicense
+  # Weak copyleft (python-telegram-bot): fine for a library imported unmodified.
+  - LGPL.*
+
+ignore-packages:
+  # setuptools' Windows launcher stubs, which carry no metadata; setuptools itself is MIT.
+  - cli
+  - cli-*
+  - gui
+  - gui-*
