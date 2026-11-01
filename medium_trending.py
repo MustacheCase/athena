@@ -1,7 +1,9 @@
+import re
+
 import feedparser
 import requests
-from langdetect import detect
-import re
+from langdetect import LangDetectException, detect
+
 
 def is_spam(text):
     # Common spam indicators
@@ -42,7 +44,7 @@ def is_spam(text):
 def is_english(text):
     try:
         return detect(text) == 'en'
-    except:
+    except LangDetectException:
         return False
 
 def get_top_tech_articles():

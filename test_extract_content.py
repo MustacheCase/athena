@@ -1,6 +1,8 @@
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
+
 from medium_trending import get_top_tech_articles
+
 
 class TestMediumTrending(unittest.TestCase):
 

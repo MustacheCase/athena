@@ -1,7 +1,8 @@
-import sys
 import requests
 from bs4 import BeautifulSoup
+
 from summarizer import summarize_article
+
 
 def extract_article(url):
     response = requests.get(url)
